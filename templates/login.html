@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Dailyfresh login{% endblock %}
+{% block header_con %}{% endblock %}
+{% block search_bar %}{% endblock %}
+{% block body %}
+	<div class="login_top clearfix">
+		<a href="index.html" class="login_logo"><img src="{% static 'images/logo02.png' %}"></a>
+	</div>
+
+	<div class="login_form_bg">
+		<div class="login_form_wrap clearfix">
+			<div class="login_banner fl"></div>
+			<div class="slogan fl"></div>
+			<div class="login_form fr">
+				<div class="login_title clearfix">
+					<h1>User login</h1>
+					<a href="#">Register</a>
+				</div>
+				<div class="form_input">
+					{# 不设置表单action 默认提交地址为当前url #}
+					<form method="post">
+						{% csrf_token %}
+						<input type="text" name="username" class="name_input" value="{{ username }}" placeholder="Please enter the user name">
+						<div class="user_error">Wrong username</div>
+						<input type="password" name="pwd" class="pass_input" placeholder="Please enter the password">
+						<div class="pwd_error">Wrong password</div>
+						<div class="more_input clearfix">
+							<input type="checkbox" name="remember" {{ checked }}>
+							<label>Remember the user</label>
+							<a href="#">Forget the password</a>
+						</div>
+						<input type="submit" name="" value="Login" class="input_submit">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ errmsg }}
+{% endblock %}

@@ -1,0 +1,19 @@
+{# User center #}
+{% extends 'base_no_cart.html' %}
+{% block title %}Dailyfresh-usercenter{% endblock %}
+{% block page_title %}User center{% endblock %}
+{% block body %}
+<div class="main_con clearfix">
+    <div class="left_menu_con clearfix">
+        <h3>User center</h3>
+        <ul>
+            <li><a href="{% url 'user:user' %}" {% if page == 'user' %}class="active"{% endif %}>· Personal Info</a></li>
+            <li><a href="{% url 'user:order' 1 %}" {% if page == 'order' %}class="active"{% endif %}>· Orders</a></li>
+            <li><a href="{% url 'user:address' %}" {% if page == 'address' %}class="active"{% endif %}>· Shipment Address</a></li>
+        </ul>
+    </div>
+    {# User center right_content #}
+    {% block right_content %}
+    {% endblock %}
+</div>
+{% endblock %}

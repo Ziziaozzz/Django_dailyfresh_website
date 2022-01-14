@@ -1,0 +1,26 @@
+{# Details and lists page #}
+{% extends 'base.html' %}
+{% block body %}
+<div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>All products</h1>
+				<span></span>
+				<ul class="subnav">
+					{% for type in types %}
+					<li><a href="{% url 'goods:list' type.id 1 %}" class="{{ type.logo }}">{{ type.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<ul class="navlist fl">
+				<li><a href="">Home page</a></li>
+				<li class="interval">|</li>
+				<li><a href="">Mobile dailyfresh</a></li>
+				<li class="interval">|</li>
+				<li><a href="">Rewards</a></li>
+			</ul>
+		</div>
+	</div>
+{# Details and lists main block #}
+{% block main_content %}{% endblock %}
+{% endblock %}
